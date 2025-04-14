@@ -1,0 +1,14 @@
+LAN_TALK UI Preview
+
+The LAN_TALK interface features a modern, cyberpunk-inspired design with the following elements:
+
+- Deep blue gradient background with subtle grid patterns
+- Left sidebar showing online users with their status
+- Main chat area in the center with message bubbles
+- Chat input at the bottom with a gradient send button
+- Voice and video call controls
+- Headers with glassmorphism effects
+- Neon accents in cyan and blue
+- Dark color scheme optimized for low-light environments
+
+The UI is designed to be intuitive and responsive, working well on both desktop and tablet devices within a local network environment.

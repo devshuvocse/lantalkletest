@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error - LAN_TALK</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .grid-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/grid-pattern.svg');
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .error-container {
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      width: 100%;
+      background-color: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      border: 1px solid #3b82f6;
+      padding: 40px;
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+      text-align: center;
+    }
+
+    .error-code {
+      font-size: 120px;
+      font-weight: bold;
+      color: transparent;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+      background-clip: text;
+      -webkit-background-clip: text;
+      line-height: 1;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+      position: relative;
+    }
+
+    .error-code::after {
+      content: "ERROR";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      color: rgba(59, 130, 246, 0.2);
+      z-index: -1;
+      font-size: 120px;
+    }
+
+    .error-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #e2e8f0;
+    }
+
+    .error-message {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #94a3b8;
+    }
+
+    .error-actions {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+    }
+
+    .button:hover {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background: transparent;
+      border: 1px solid #3b82f6;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 0.9; }
+      50% { opacity: 1; }
+    }
+
+    .glitch {
+      animation: flicker 4s infinite alternate;
+    }
+
+    @media (max-width: 640px) {
+      .error-container {
+        padding: 30px 20px;
+      }
+
+      .error-code {
+        font-size: 80px;
+      }
+
+      .error-code::after {
+        font-size: 80px;
+      }
+
+      .error-title {
+        font-size: 22px;
+      }
+
+      .error-actions {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-pattern"></div>
+
+  <div class="error-container">
+    <h1 class="error-code glitch" id="errorCode">404</h1>
+    <h2 class="error-title" id="errorTitle">Connection Disrupted</h2>
+    <p class="error-message" id="errorMessage">
+      We couldn't establish a connection to the requested resource. The network link may be down,
+      or the resource might not exist within your local network.
+    </p>
+    <div class="error-actions">
+      <a href="/" class="button">Return to Dashboard</a>
+      <button onclick="window.history.back()" class="button button-outline">Go Back</button>
+    </div>
+  </div>
+
+  <script>
+    // Function to parse URL parameters
+    function getUrlParams() {
+      const params = {};
+      const queryString = window.location.search.substring(1);
+      const pairs = queryString.split('&');
+
+      for (const pair of pairs) {
+        const [key, value] = pair.split('=');
+        if (key) params[key] = decodeURIComponent(value || '');
+      }
+
+      return params;
+    }
+
+    // Update error information based on URL parameters
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = getUrlParams();
+
+      if (params.code) {
+        document.getElementById('errorCode').textContent = params.code;
+      }
+
+      if (params.title) {
+        document.getElementById('errorTitle').textContent = params.title;
+      }
+
+      if (params.message) {
+        document.getElementById('errorMessage').textContent = params.message;
+      }
+    });
+  </script>
+</body>
+</html>

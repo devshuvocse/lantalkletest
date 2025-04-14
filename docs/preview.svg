@@ -1,0 +1,129 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="button-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(59, 130, 246, 0.2)" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Main background -->
+  <rect width="800" height="500" fill="url(#bg)" />
+
+  <!-- Grid overlay -->
+  <rect width="800" height="500" fill="url(#grid)" opacity="0.2" />
+
+  <!-- App container -->
+  <rect x="50" y="50" width="700" height="400" rx="8" ry="8" fill="rgba(15, 23, 42, 0.6)" stroke="#3b82f6" stroke-width="1" />
+
+  <!-- App header -->
+  <rect x="50" y="50" width="700" height="50" rx="8" ry="0" fill="rgba(15, 23, 42, 0.8)" />
+  <text x="80" y="82" font-family="Arial" font-size="22" font-weight="bold" fill="url(#button-gradient)">LAN_TALK</text>
+
+  <!-- Connected indicator -->
+  <rect x="200" y="65" width="80" height="20" rx="10" ry="10" fill="rgba(22, 101, 52, 0.3)" stroke="#166534" stroke-width="1" />
+  <circle cx="210" cy="75" r="5" fill="#22c55e" />
+  <text x="220" y="79" font-family="Arial" font-size="10" fill="#86efac">Connected</text>
+
+  <!-- Logout button -->
+  <rect x="650" y="65" width="60" height="22" rx="4" ry="4" fill="transparent" stroke="#3b82f6" stroke-width="1" />
+  <text x="661" y="79" font-family="Arial" font-size="10" fill="#93c5fd">Logout</text>
+
+  <!-- Sidebar -->
+  <rect x="50" y="100" width="200" height="350" fill="rgba(15, 23, 42, 0.5)" stroke="#3b82f6" stroke-width="1" />
+  <text x="70" y="130" font-family="Arial" font-size="14" fill="#93c5fd">Online Users</text>
+
+  <!-- Search box -->
+  <rect x="70" y="140" width="160" height="30" rx="4" ry="4" fill="rgba(30, 41, 59, 0.8)" stroke="#3b82f6" stroke-width="1" />
+  <text x="80" y="160" font-family="Arial" font-size="10" fill="#64748b">Search users...</text>
+
+  <!-- User list -->
+  <g>
+    <!-- User 1 - selected -->
+    <rect x="50" y="180" width="200" height="60" fill="rgba(30, 58, 138, 0.4)" />
+    <rect x="50" y="180" width="3" height="60" fill="#22d3ee" />
+    <circle cx="80" cy="210" r="15" fill="url(#button-gradient)" />
+    <text x="80" y="214" font-family="Arial" font-size="12" fill="white" text-anchor="middle">A</text>
+    <text x="105" y="205" font-family="Arial" font-size="12" fill="#e2e8f0">Alice</text>
+    <circle cx="105" cy="220" r="3" fill="#22c55e" />
+    <text x="115" y="224" font-family="Arial" font-size="10" fill="#93c5fd">Online</text>
+  </g>
+
+  <g>
+    <!-- User 2 -->
+    <rect x="50" y="240" width="200" height="60" fill="transparent" />
+    <circle cx="80" cy="270" r="15" fill="url(#button-gradient)" />
+    <text x="80" y="274" font-family="Arial" font-size="12" fill="white" text-anchor="middle">B</text>
+    <text x="105" y="265" font-family="Arial" font-size="12" fill="#e2e8f0">Bob</text>
+    <circle cx="105" cy="280" r="3" fill="#22c55e" />
+    <text x="115" y="284" font-family="Arial" font-size="10" fill="#93c5fd">Online</text>
+  </g>
+
+  <g>
+    <!-- User 3 -->
+    <rect x="50" y="300" width="200" height="60" fill="transparent" />
+    <circle cx="80" cy="330" r="15" fill="url(#button-gradient)" />
+    <text x="80" y="334" font-family="Arial" font-size="12" fill="white" text-anchor="middle">C</text>
+    <text x="105" y="325" font-family="Arial" font-size="12" fill="#e2e8f0">Charlie</text>
+    <circle cx="105" cy="340" r="3" fill="#22c55e" />
+    <text x="115" y="344" font-family="Arial" font-size="10" fill="#93c5fd">Online</text>
+  </g>
+
+  <!-- Chat area -->
+  <rect x="250" y="100" width="500" height="300" fill="rgba(15, 23, 42, 0.3)" />
+
+  <!-- Chat header -->
+  <rect x="250" y="100" width="500" height="50" fill="rgba(15, 23, 42, 0.6)" />
+  <circle cx="280" cy="125" r="15" fill="url(#button-gradient)" />
+  <text x="280" y="129" font-family="Arial" font-size="12" fill="white" text-anchor="middle">A</text>
+  <text x="305" y="120" font-family="Arial" font-size="12" fill="#e2e8f0">Alice</text>
+  <circle cx="305" cy="135" r="3" fill="#22c55e" />
+  <text x="315" y="139" font-family="Arial" font-size="10" fill="#93c5fd">Online</text>
+
+  <!-- Messages -->
+  <g>
+    <!-- Received message -->
+    <rect x="280" y="170" width="200" height="60" rx="6" ry="6" fill="rgba(30, 41, 59, 0.8)" />
+    <text x="290" y="190" font-family="Arial" font-size="10" fill="#e2e8f0" font-weight="bold">Alice</text>
+    <text x="290" y="210" font-family="Arial" font-size="12" fill="#e2e8f0">Hey! How are you doing?</text>
+    <text x="460" y="222" font-family="Arial" font-size="8" fill="#94a3b8">10:25 AM</text>
+  </g>
+
+  <g>
+    <!-- Sent message -->
+    <rect x="520" y="240" width="200" height="60" rx="6" ry="6" fill="rgba(30, 58, 138, 0.8)" />
+    <text x="530" y="260" font-family="Arial" font-size="10" fill="#e2e8f0" font-weight="bold">You</text>
+    <text x="530" y="280" font-family="Arial" font-size="12" fill="#e2e8f0">I'm good! How about you?</text>
+    <text x="700" y="292" font-family="Arial" font-size="8" fill="#94a3b8">10:26 AM</text>
+  </g>
+
+  <!-- Message input -->
+  <rect x="270" y="410" width="460" height="40" rx="4" ry="4" fill="rgba(30, 41, 59, 0.8)" stroke="#3b82f6" stroke-width="1" />
+  <text x="290" y="435" font-family="Arial" font-size="12" fill="#64748b">Message Alice...</text>
+
+  <!-- Send button -->
+  <rect x="650" y="410" width="80" height="40" rx="4" ry="4" fill="url(#button-gradient)" />
+  <text x="675" y="435" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Send</text>
+
+  <!-- Call controls -->
+  <rect x="250" y="350" width="500" height="50" fill="rgba(15, 23, 42, 0.6)" />
+
+  <!-- Voice call button -->
+  <rect x="530" y="360" width="100" height="30" rx="4" ry="4" fill="rgba(30, 58, 138, 0.4)" stroke="#3b82f6" stroke-width="1" />
+  <text x="550" y="380" font-family="Arial" font-size="12" fill="#93c5fd">Voice Call</text>
+
+  <!-- Video call button -->
+  <rect x="640" y="360" width="100" height="30" rx="4" ry="4" fill="rgba(8, 145, 178, 0.4)" stroke="#06b6d4" stroke-width="1" />
+  <text x="660" y="380" font-family="Arial" font-size="12" fill="#67e8f9">Video Call</text>
+
+  <!-- LAN indicator -->
+  <text x="270" y="380" font-family="Arial" font-size="10" fill="#93c5fd">LAN-based calls don't use internet data</text>
+</svg>
